@@ -1,0 +1,30 @@
+# Universal Windows Platform
+# Build a Universal Windows Platform project using Visual Studio.
+# Add steps that test and distribute an app, save build artifacts, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Polygon Fighter/Polygon Fighter/DirectX 11 Engine VS2017/DirectX 11 Engine VS2017.sln'
+    vsVersion: '14.0'
+    platform: 'Win32'
+    configuration: 'Release'
+    createLogFile: true
+    logFileVerbosity: 'diagnostic'
+    customVersion: '15.0.28010.2016'
