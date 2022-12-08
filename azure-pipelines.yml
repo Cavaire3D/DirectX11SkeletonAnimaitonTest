@@ -23,8 +23,8 @@ steps:
   inputs:
     solution: 'Polygon Fighter/Polygon Fighter/DirectX 11 Engine VS2017/DirectX 11 Engine VS2017.sln'
     vsVersion: '14.0'
-    platform: 'Win32'
+    platform: 'x64'
     configuration: 'Release'
     createLogFile: true
     logFileVerbosity: 'diagnostic'
-    customVersion: '15.0.28010.2016'
+    customVersion: '15.0'
